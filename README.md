@@ -10,6 +10,10 @@
 **Surveillance intelligente de machines industrielles en temps réel**  
 *Détection d'anomalies par IA distribuée*
 
+![Dashboard Screenshot](./images/dashboard.png)
+
+> 💡 **Démo Live** : Dashboard avec jumeau numérique 3D, graphiques temps réel et assistant IA
+
 [🚀 Installation](#installation) • [📊 Résultats](#résultats) • [📐 Architecture](#architecture) • [📚 Documentation](#documentation)
 
 </div>
