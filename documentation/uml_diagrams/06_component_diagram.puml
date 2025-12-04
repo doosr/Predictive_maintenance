@@ -1,0 +1,77 @@
+@startuml Diagramme_Composants
+!theme cerulean-outline
+
+title Diagramme de Composants - Architecture Logicielle
+
+package "Couche IoT (Edge Devices)" {
+  component [ESP32 Firmware] as ESP32
+  component [Capteurs I2C/SPI] as Sensors
+  
+  Sensors --> ESP32 : Données analogiques
+}
+
+package "Couche Communication" {
+  component [MQTT Broker\nMosquitto] as MQTT
+  
+  interface "MQTT Protocol" as IMQTT
+  ESP32 --> IMQTT
+  IMQTT - MQTT
+}
+
+package "Couche Edge Computing (Gateway)" {
+  component [Service Inférence\nPython] as EdgeService
+  component [Modèle ML\nScikit-learn SVM] as MLModel
+  component [InfluxDB\nTime Series DB] as InfluxDB
+  
+  interface "MQTT Subscribe" as IMQTTSub
+  MQTT - IMQTTSub
+  IMQTTSub --> EdgeService
+  
+  EdgeService --> MLModel : Chargement .pkl
+  EdgeService --> InfluxDB : Stockage métriques
+}
+
+package "Couche Application (Backend)" {
+  component [Backend Server\nNode.js + Express] as Backend
+  component [WebSocket Server\nSocket.io] as WS
+  
+  interface "MQTT Analytics" as IMQTTAnalytics
+  MQTT - IMQTTAnalytics
+  IMQTTAnalytics --> Backend
+  
+  Backend --> WS : Broadcast events
+}
+
+package "Couche Présentation (Frontend)" {
+  component [Dashboard Web\nHTML/CSS/JS] as WebDashboard
+  component [Moteur 3D\nThree.js] as ThreeJS
+  component [Graphiques\nChart.js] as ChartJS
+  
+  interface "WebSocket Client" as IWSClient
+  WS - IWSClient
+  IWSClient --> WebDashboard
+  
+  WebDashboard --> ThreeJS : Rendu 3D
+  WebDashboard --> ChartJS : Graphiques
+}
+
+package "Extension Unity (Optionnel)" {
+  component [Jumeau Numérique\nUnity 3D] as Unity
+  
+  Unity --> IMQTT : MQTT Client
+}
+
+cloud "Internet" {
+  [Grafana\nDashboard Pro] as Grafana
+}
+
+InfluxDB --> Grafana : Datasource
+
+note bottom of EdgeService
+  **Intelligence Edge**
+  - Latence minimale
+  - IA embarquée
+  - Autonomie réseau
+end note
+
+@enduml

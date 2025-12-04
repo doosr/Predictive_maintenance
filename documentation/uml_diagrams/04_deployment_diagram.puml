@@ -1,0 +1,74 @@
+@startuml Diagramme_Deploiement
+!theme cerulean-outline
+
+title Diagramme de Déploiement - Infrastructure Physique
+
+node "Machine Industrielle" {
+  artifact "Capteur\nVibration" as VibSensor
+  artifact "Capteur\nTempérature" as TempSensor
+  artifact "Capteur\nCourant" as CurrentSensor
+  
+  node "**ESP32**\n<<Microcontrôleur>>" as ESP32 {
+    component "Firmware\nC++" as FirmwareESP
+  }
+  
+  VibSensor --> ESP32
+  TempSensor --> ESP32
+  CurrentSensor --> ESP32
+}
+
+cloud "Réseau WiFi / LAN" as Network
+
+node "**Raspberry Pi 4**\n<<Edge Gateway>>" as RaspberryPi {
+  node "Docker Container" {
+    component "Mosquitto\nBroker MQTT" as MQTT
+    component "InfluxDB\n(Séries Temp.)" as InfluxDB
+  }
+  
+  component "Service Edge\nPython\n(Inférence IA)" as EdgeService
+  
+  database "Modèle SVM\n.pkl" as Model
+  
+  EdgeService --> Model
+  EdgeService --> MQTT
+  EdgeService --> InfluxDB
+}
+
+node "**Serveur Web**\n<<PC / Cloud>>" as WebServer {
+  component "Backend\nNode.js\n+ Express" as Backend
+  component "Dashboard\nHTML/JS\n(Three.js)" as Frontend
+  
+  Backend --> Frontend : Sert fichiers
+}
+
+node "**Poste Client**\n<<PC / Tablette>>" as Client {
+  artifact "Navigateur\nWeb" as Browser
+  Browser --> Frontend : HTTP/WebSocket
+}
+
+node "**Unity 3D**\n<<Ordinateur / Mobile>>" as Unity {
+  component "Application\nJumeau Numérique" as UnityApp
+}
+
+ESP32 --> Network : WiFi
+Network --> MQTT : MQTT
+MQTT --> EdgeService : Subscribe
+EdgeService --> Backend : MQTT Publish
+Backend --> Browser : WebSocket
+MQTT --> UnityApp : MQTT Subscribe
+
+note right of RaspberryPi
+  **Edge Computing**
+  - Latence < 100ms
+  - IA locale (SVM)
+  - Traitement temps réel
+end note
+
+note right of WebServer
+  **Supervision Centralisée**
+  - Dashboard Web
+  - Alertes en temps réel
+  - Historique
+end note
+
+@enduml

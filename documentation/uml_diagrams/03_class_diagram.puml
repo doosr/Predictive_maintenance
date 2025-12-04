@@ -1,0 +1,106 @@
+@startuml Diagramme_Classes
+!theme cerulean-outline
+
+title Diagramme de Classes - Architecture du Système
+
+package "Couche Capteurs (IoT)" {
+  class ESP32Controller {
+    - String ssid
+    - String password
+    - String mqtt_server
+    - float vibration
+    - float temperature
+    - float current
+    + void setup_wifi()
+    + void reconnect()
+    + void publishSensorData()
+  }
+  
+  class SensorData {
+    + String machine_id
+    + float vibration
+    + float temperature
+    + float current
+    + long timestamp
+    + String toJSON()
+  }
+}
+
+package "Couche Edge Computing (IA)" {
+  class InferenceService {
+    - MQTTClient client
+    - SVMModel model
+    - InfluxDBWriter writer
+    + void on_message(msg)
+    + void processData(SensorData)
+    + AnalysisResult predict(features)
+  }
+  
+  class SVMModel {
+    - sklearn.SVM model
+    + void loadModel(path)
+    + int predict(features)
+    + float[] predict_proba(features)
+  }
+  
+  class AnalysisResult {
+    + String machine_id
+    + bool is_anomaly
+    + float confidence
+    + String recommendation
+    + long timestamp
+    + String toJSON()
+  }
+}
+
+package "Couche Backend (Application)" {
+  class BackendServer {
+    - MQTTClient mqtt_client
+    - SocketIO io
+    - Array alertHistory
+    + void subscribeToMQTT()
+    + void handleAnalysis(data)
+    + String generateRecommendation(data)
+    + void broadcastToClients(data)
+  }
+  
+  class WebSocketServer {
+    - int port
+    - Array connectedClients
+    + void emitUpdate(event, data)
+    + void handleConnection(socket)
+  }
+}
+
+package "Couche Visualisation" {
+  class Dashboard {
+    - SocketIO socket
+    - Chart vibrationChart
+    - THREE.Scene scene3D
+    + void updateKPIs(data)
+    + void updateChart(value)
+    + void update3DModel(data)
+    + void displayAlert(msg)
+  }
+  
+  class DigitalTwin3D {
+    - THREE.Mesh motorModel
+    - Color currentColor
+    - Vector3 position
+    + void applyShake(vibration)
+    + void changeColor(isAnomaly)
+    + void animate()
+  }
+}
+
+' Relations
+ESP32Controller "1" --> "1..*" SensorData : crée
+SensorData "1" --> "1" InferenceService : envoyé via MQTT
+InferenceService "1" --> "1" SVMModel : utilise
+InferenceService "1" --> "1" AnalysisResult : produit
+AnalysisResult "1" --> "1" BackendServer : envoyé via MQTT
+BackendServer "1" --> "1" WebSocketServer : utilise
+WebSocketServer "1" --> "*" Dashboard : diffuse données
+Dashboard "1" --> "1" DigitalTwin3D : contrôle
+
+@enduml

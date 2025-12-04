@@ -1,0 +1,58 @@
+@startuml Diagramme_Activite_Entrainement
+!theme cerulean-outline
+
+title Diagramme d'Activité - Processus d'Entraînement du Modèle IA
+
+start
+
+:Collecte des données\nhistoriques capteurs;
+note right
+  Sources:
+  - Logs machines
+  - Simulations
+  - Données synthétiques
+end note
+
+:Chargement dataset\n(sensor_data.csv);
+
+:Prétraitement des données;
+partition "Nettoyage" {
+  :Suppression des valeurs\nmanquantes;
+  :Normalisation des features\n(Vibration, Temp, Courant);
+}
+
+:Séparation Train/Test\n(80% / 20%);
+
+partition "Entraînement" {
+  :Initialisation modèle\nSVM (kernel=RBF);
+  
+  :Entraînement sur\nTrain Set;
+  
+  :Validation croisée;
+}
+
+:Évaluation sur Test Set;
+
+if (Performance acceptable?\n(Précision > 90%)) then (Oui)
+  :Sauvegarde du modèle\n(anomaly_detector.pkl);
+  
+  :Déploiement sur\nRaspberry Pi (Edge);
+  
+  :Modèle prêt pour\ninférence temps réel;
+  
+  stop
+  
+else (Non)
+  :Analyse des erreurs;
+  
+  if (Manque de données?) then (Oui)
+    :Collecte de plus\nde données;
+  else (Non)
+    :Ajustement hyperparamètres\n(C, gamma, kernel);
+  endif
+  
+  detach
+  
+endif
+
+@enduml

@@ -1,0 +1,44 @@
+@startuml Diagramme_Cas_Utilisation
+!theme cerulean-outline
+
+title Diagramme de Cas d'Utilisation - Plateforme IoT Maintenance Prédictive
+
+left to right direction
+
+actor "Opérateur\nMaintenance" as Op
+actor "Machine\nIndustrielle" as Machine
+actor "Système IA" as AI
+actor "Administrateur" as Admin
+
+rectangle "Plateforme IoT Maintenance Prédictive" {
+  usecase "Surveiller l'état\ndes machines" as UC1
+  usecase "Détecter les\nanomalies" as UC2
+  usecase "Générer des\nalertes" as UC3
+  usecase "Visualiser le\ntableau de bord" as UC4
+  usecase "Recevoir des\nrecommendations IA" as UC5
+  usecase "Consulter\nl'historique" as UC6
+  usecase "Envoyer données\ncapteurs" as UC7
+  usecase "Analyser en\ntemps réel" as UC8
+  usecase "Configurer le\nsystème" as UC9
+  usecase "Visualiser Jumeau\nNumérique 3D" as UC10
+}
+
+Machine --> UC7
+UC7 ..> UC1 : <<include>>
+
+AI --> UC8
+AI --> UC2
+UC2 ..> UC3 : <<include>>
+UC2 ..> UC5 : <<include>>
+
+Op --> UC1
+Op --> UC4
+Op --> UC6
+Op --> UC10
+
+Admin --> UC9
+
+UC4 ..> UC3 : <<include>>
+UC4 ..> UC5 : <<include>>
+
+@enduml

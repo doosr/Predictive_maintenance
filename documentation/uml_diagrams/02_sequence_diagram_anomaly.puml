@@ -1,0 +1,60 @@
+@startuml Diagramme_Sequence_Detection_Anomalie
+!theme cerulean-outline
+
+title Diagramme de Séquence - Détection d'une Anomalie
+
+participant "Capteurs\n(Vibration, Temp)" as Sensor
+participant "ESP32\n(IoT Device)" as ESP32
+participant "Broker\nMQTT" as MQTT
+participant "Service Edge\n(Raspberry Pi)" as Edge
+participant "Modèle IA\n(SVM)" as AI
+participant "Backend\nNode.js" as Backend
+participant "Dashboard\nWeb" as Dashboard
+participant "Opérateur" as User
+
+activate Sensor
+Sensor -> ESP32 : Mesure physique\n(vibration = 6.5)
+activate ESP32
+
+ESP32 -> ESP32 : Création payload JSON
+ESP32 -> MQTT : PUBLISH\ntopic: pfe/machine01/sensors\n{"vibration": 6.5, ...}
+deactivate ESP32
+
+activate MQTT
+MQTT -> Edge : Transmission message
+activate Edge
+
+Edge -> Edge : Réception données
+Edge -> AI : Extraction features\n[6.5, 52, 7.2]
+activate AI
+
+AI -> AI : Prédiction SVM
+AI --> Edge : Résultat:\nis_anomaly = True\nconfiance = 0.95
+deactivate AI
+
+Edge -> Edge : Génération recommandation\n"Vérifier alignement arbre"
+
+Edge -> MQTT : PUBLISH\ntopic: pfe/machine01/analysis\n{"is_anomaly": true, ...}
+deactivate Edge
+
+MQTT -> Backend : Transmission analyse
+activate Backend
+
+Backend -> Backend : Détection anomalie\nGénération alerte
+
+Backend -> Dashboard : WebSocket EMIT\nmachine_update event
+activate Dashboard
+
+Dashboard -> Dashboard : Mise à jour UI\n- Statut ROUGE\n- Affichage alerte
+Dashboard -> User : Notification visuelle\n+ Recommandation
+activate User
+
+User -> User : Prise de décision\nIntervention
+
+deactivate User
+deactivate Dashboard
+deactivate Backend
+deactivate MQTT
+deactivate Sensor
+
+@enduml
