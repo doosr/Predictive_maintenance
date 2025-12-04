@@ -1,4 +1,4 @@
-# 🏭 Plateforme IoT de Maintenance Prédictive avec Intelligence Artificielle
+﻿# ðŸ­ Plateforme IoT de Maintenance PrÃ©dictive avec Intelligence Artificielle
 
 <div align="center">
 
@@ -7,62 +7,62 @@
 ![AI](https://img.shields.io/badge/AI-SVM%20%2B%20Edge-orange)
 ![Platform](https://img.shields.io/badge/Platform-Industrie%204.0-informational)
 
-**Surveillance intelligente de machines industrielles en temps réel**  
-*Détection d'anomalies par IA distribuée*
+**Surveillance intelligente de machines industrielles en temps rÃ©el**  
+*DÃ©tection d'anomalies par IA distribuÃ©e*
 
 ![Dashboard Screenshot](./images/dashboard.png)
 
-> 💡 **Démo Live** : Dashboard avec jumeau numérique 3D, graphiques temps réel et assistant IA
+> ðŸ’¡ **DÃ©mo Live** : Dashboard avec jumeau numÃ©rique 3D, graphiques temps rÃ©el et assistant IA
 
-[🚀 Installation](#installation) • [📊 Résultats](#résultats) • [📐 Architecture](#architecture) • [📚 Documentation](#documentation)
+[ðŸš€ Installation](#installation) â€¢ [ðŸ“Š RÃ©sultats](#rÃ©sultats) â€¢ [ðŸ“ Architecture](#architecture) â€¢ [ðŸ“š Documentation](#documentation)
 
 </div>
 
 ---
 
-## 🎯 Présentation
+## ðŸŽ¯ PrÃ©sentation
 
-Plateforme complète de **Maintenance Prédictive 4.0** qui permet de :
+Plateforme complÃ¨te de **Maintenance PrÃ©dictive 4.0** qui permet de :
 
-- 📊 **Surveiller** en temps réel l'état des machines (vibration, température, courant)
-- 🧠 **Détecter** automatiquement les anomalies via IA (SVM) en Edge Computing
-- ⚡ **Alerter** instantanément avec recommandations techniques précises
-- 📈 **Visualiser** sur dashboard web 3D interactif + application AR mobile
-- 🔄 **Éviter** les pannes coûteuses grâce à l'intervention préventive
+- ðŸ“Š **Surveiller** en temps rÃ©el l'Ã©tat des machines (vibration, tempÃ©rature, courant)
+- ðŸ§  **DÃ©tecter** automatiquement les anomalies via IA (SVM) en Edge Computing
+- âš¡ **Alerter** instantanÃ©ment avec recommandations techniques prÃ©cises
+- ðŸ“ˆ **Visualiser** sur dashboard web 3D interactif + application AR mobile
+- ðŸ”„ **Ã‰viter** les pannes coÃ»teuses grÃ¢ce Ã  l'intervention prÃ©ventive
 
-### 🌟 Points Forts
+### ðŸŒŸ Points Forts
 
-✅ **Edge AI** : IA locale (Raspberry Pi) → latence < 100ms  
-✅ **MQTT** : Communication IoT légère et scalable  
-✅ **Jumeau 3D** : Visualisation immersive (Three.js + Unity AR)  
-✅ **IA Cognitive** : Recommandations automatiques  
-✅ **Dashboard Pro** : Interface Dark Mode temps réel
+âœ… **Edge AI** : IA locale (Raspberry Pi) â†’ latence < 100ms  
+âœ… **MQTT** : Communication IoT lÃ©gÃ¨re et scalable  
+âœ… **Jumeau 3D** : Visualisation immersive (Three.js + Unity AR)  
+âœ… **IA Cognitive** : Recommandations automatiques  
+âœ… **Dashboard Pro** : Interface Dark Mode temps rÃ©el
 
 ---
 
-## 🏗️ Architecture du Système {#architecture}
+## ðŸ—ï¸ Architecture du SystÃ¨me {#architecture}
 
 ### Vue d'Ensemble
 
-![Architecture Système](./images/architecture_system.jpg)
+![Architecture SystÃ¨me](./images/architecture_system.jpg)
 
 *Architecture professionnelle en 4 couches : IoT, Communication, Edge Computing, Application*
 
 
-### Flux de Données Temps Réel
+### Flux de DonnÃ©es Temps RÃ©el
 
 ```
-Capteur → ESP32 → MQTT → Edge IA → Backend → Dashboard
-  ↓        ↓       ↓       ↓         ↓          ↓
+Capteur â†’ ESP32 â†’ MQTT â†’ Edge IA â†’ Backend â†’ Dashboard
+  â†“        â†“       â†“       â†“         â†“          â†“
  Mesure  JSON   Publish  SVM    WebSocket   Alerte
  6.5mm            15ms    45ms      35ms      Visuelle
   
-⏱️  LATENCE TOTALE : 152ms (< 200ms ✅)
+â±ï¸  LATENCE TOTALE : 152ms (< 200ms âœ…)
 ```
 
 ---
 
-## 🛠️ Technologies Utilisées {#technologies}
+## ðŸ› ï¸ Technologies UtilisÃ©es {#technologies}
 
 | Composant | Technologies |
 |-----------|-------------|
@@ -76,155 +76,155 @@ Capteur → ESP32 → MQTT → Edge IA → Backend → Dashboard
 
 ---
 
-## 🚀 Installation et Démarrage {#installation}
+## ðŸš€ Installation et DÃ©marrage {#installation}
 
-### Prérequis
+### PrÃ©requis
 
 - Python 3.8+
 - Node.js & npm
 - Docker (optionnel)
 
-### 1️⃣ Installation
+### 1ï¸âƒ£ Installation
 
 ```bash
-# Dépendances Python (IA + Edge)
+# DÃ©pendances Python (IA + Edge)
 pip install pandas scikit-learn numpy joblib paho-mqtt influxdb-client
 
-# Dépendances Node.js (Backend)
+# DÃ©pendances Node.js (Backend)
 cd backend_node && npm install && cd ..
 ```
 
-### 2️⃣ Entraînement du Modèle IA
+### 2ï¸âƒ£ EntraÃ®nement du ModÃ¨le IA
 
 ```bash
 cd edge_computing/model_training
 python generate_data.py
 python train_model.py
 ```
-📦 **Résultat** : `anomaly_detector.pkl` créé
+ðŸ“¦ **RÃ©sultat** : `anomaly_detector.pkl` crÃ©Ã©
 
-### 3️⃣ Lancement (3 terminaux)
+### 3ï¸âƒ£ Lancement (3 terminaux)
 
 **Terminal 1 - Backend :**
 ```bash
 cd backend_node && npm start
 ```
-✅ Serveur : `http://localhost:3000`
+âœ… Serveur : `http://localhost:3000`
 
 **Terminal 2 - Edge IA :**
 ```bash
 cd edge_computing/inference_service && python main.py
 ```
-✅ Service IA connecté
+âœ… Service IA connectÃ©
 
 **Terminal 3 - Simulateur :**
 ```bash
 python simulate_device.py
 ```
-✅ Données capteurs actives
+âœ… DonnÃ©es capteurs actives
 
-### 4️⃣ Accéder au Dashboard
+### 4ï¸âƒ£ AccÃ©der au Dashboard
 
-Ouvrez **http://localhost:3000** 🎉
+Ouvrez **http://localhost:3000** ðŸŽ‰
 
 ---
 
-## 📊 Résultats {#résultats}
+## ðŸ“Š RÃ©sultats {#rÃ©sultats}
 
-### Performances Mesurées
+### Performances MesurÃ©es
 
-| Métrique | Réalisé | Objectif | Statut |
+| MÃ©trique | RÃ©alisÃ© | Objectif | Statut |
 |----------|---------|----------|--------|
-| **Latence totale** | 152 ms | < 200 ms | ✅ **+24%** |
-| **Précision IA** | 98.5% | > 90% | ✅ **+8.5%** |
-| **Disponibilité** | 99.9% | > 99% | ✅ **+0.9%** |
-| **Faux positifs** | 2% | < 5% | ✅ **+60%** |
-| **F1-Score** | 97.5% | > 85% | ✅ **+12.5%** |
+| **Latence totale** | 152 ms | < 200 ms | âœ… **+24%** |
+| **PrÃ©cision IA** | 98.5% | > 90% | âœ… **+8.5%** |
+| **DisponibilitÃ©** | 99.9% | > 99% | âœ… **+0.9%** |
+| **Faux positifs** | 2% | < 5% | âœ… **+60%** |
+| **F1-Score** | 97.5% | > 85% | âœ… **+12.5%** |
 
 ### Matrice de Confusion SVM
 
 ```
-                 Prédit Normal  │  Prédit Anomalie
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Réel Normal          195       │         5
-Réel Anomalie          3       │        97
+                 PrÃ©dit Normal  â”‚  PrÃ©dit Anomalie
+â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+RÃ©el Normal          195       â”‚         5
+RÃ©el Anomalie          3       â”‚        97
 
-📈 Accuracy: 98.5%  │  AUC-ROC: 0.987  │  Précision: 97.8%
+ðŸ“ˆ Accuracy: 98.5%  â”‚  AUC-ROC: 0.987  â”‚  PrÃ©cision: 97.8%
 ```
 
-### Détails de Latence
+### DÃ©tails de Latence
 
-| Étape | Latence Moyenne | Min | Max |
+| Ã‰tape | Latence Moyenne | Min | Max |
 |-------|----------------|-----|-----|
-| Capteur → ESP32 | 15 ms | 10 ms | 23 ms |
-| ESP32 → MQTT | 45 ms | 30 ms | 78 ms |
-| MQTT → Edge | 12 ms | 8 ms | 20 ms |
-| **Inférence SVM** | **45 ms** | 35 ms | 65 ms |
-| Edge → Dashboard | 35 ms | 25 ms | 50 ms |
+| Capteur â†’ ESP32 | 15 ms | 10 ms | 23 ms |
+| ESP32 â†’ MQTT | 45 ms | 30 ms | 78 ms |
+| MQTT â†’ Edge | 12 ms | 8 ms | 20 ms |
+| **InfÃ©rence SVM** | **45 ms** | 35 ms | 65 ms |
+| Edge â†’ Dashboard | 35 ms | 25 ms | 50 ms |
 | **TOTAL** | **152 ms** | 108 ms | 236 ms |
 
 ---
 
-## 📐 Structure du Projet
+## ðŸ“ Structure du Projet
 
 ```
 predictive_maintenance/
-├── 📁 firmware/
-│   └── esp32_sensor_node/          # Firmware ESP32 (C++)
-├── 📁 edge_computing/
-│   ├── model_training/              # Scripts entraînement SVM
-│   │   ├── generate_data.py
-│   │   ├── train_model.py
-│   │   └── anomaly_detector.pkl    # Modèle entraîné
-│   └── inference_service/           # Service IA (Raspberry Pi)
-│       └── main.py
-├── 📁 backend_node/
-│   ├── index.js                     # Backend Node.js
-│   ├── package.json
-│   └── public/
-│       └── index.html               # Dashboard Web 3D
-├── 📁 unity_integration/
-│   ├── Scripts/                     # Scripts C# Unity
-│   │   ├── DigitalTwinController.cs
-│   │   └── ARPredictiveMaintenanceController.cs
-│   ├── GUIDE_AR_REALITE_AUGMENTEE.md
-│   └── DEPLOIEMENT_MOBILE.md
-├── 📁 infrastructure/
-│   └── docker-compose.yml           # Mosquitto, InfluxDB, Grafana
-└── 📁 documentation/
-    ├── uml_diagrams/                # 6 diagrammes PlantUML
-    │   ├── 01_use_case_diagram.puml
-    │   ├── 02_sequence_diagram_anomaly.puml
-    │   ├── 03_class_diagram.puml
-    │   ├── 04_deployment_diagram.puml
-    │   ├── 05_activity_diagram_training.puml
-    │   └── 06_component_diagram.puml
-    ├── MEMOIRE_COMPLET.md           # Mémoire Master (90 pages)
-    ├── MEMOIRE_MASTER_03_REALISATION.md
-    └── MEMOIRE_MASTER_04_RESULTATS.md
+â”œâ”€â”€ ðŸ“ firmware/
+â”‚   â””â”€â”€ esp32_sensor_node/          # Firmware ESP32 (C++)
+â”œâ”€â”€ ðŸ“ edge_computing/
+â”‚   â”œâ”€â”€ model_training/              # Scripts entraÃ®nement SVM
+â”‚   â”‚   â”œâ”€â”€ generate_data.py
+â”‚   â”‚   â”œâ”€â”€ train_model.py
+â”‚   â”‚   â””â”€â”€ anomaly_detector.pkl    # ModÃ¨le entraÃ®nÃ©
+â”‚   â””â”€â”€ inference_service/           # Service IA (Raspberry Pi)
+â”‚       â””â”€â”€ main.py
+â”œâ”€â”€ ðŸ“ backend_node/
+â”‚   â”œâ”€â”€ index.js                     # Backend Node.js
+â”‚   â”œâ”€â”€ package.json
+â”‚   â””â”€â”€ public/
+â”‚       â””â”€â”€ index.html               # Dashboard Web 3D
+â”œâ”€â”€ ðŸ“ unity_integration/
+â”‚   â”œâ”€â”€ Scripts/                     # Scripts C# Unity
+â”‚   â”‚   â”œâ”€â”€ DigitalTwinController.cs
+â”‚   â”‚   â””â”€â”€ ARPredictiveMaintenanceController.cs
+â”‚   â”œâ”€â”€ GUIDE_AR_REALITE_AUGMENTEE.md
+â”‚   â””â”€â”€ DEPLOIEMENT_MOBILE.md
+â”œâ”€â”€ ðŸ“ infrastructure/
+â”‚   â””â”€â”€ docker-compose.yml           # Mosquitto, InfluxDB, Grafana
+â””â”€â”€ ðŸ“ documentation/
+    â”œâ”€â”€ uml_diagrams/                # 6 diagrammes PlantUML
+    â”‚   â”œâ”€â”€ 01_use_case_diagram.puml
+    â”‚   â”œâ”€â”€ 02_sequence_diagram_anomaly.puml
+    â”‚   â”œâ”€â”€ 03_class_diagram.puml
+    â”‚   â”œâ”€â”€ 04_deployment_diagram.puml
+    â”‚   â”œâ”€â”€ 05_activity_diagram_training.puml
+    â”‚   â””â”€â”€ 06_component_diagram.puml
+    â”œâ”€â”€ MEMOIRE_COMPLET.md           # MÃ©moire Master (90 pages)
+    â”œâ”€â”€ MEMOIRE_MASTER_03_REALISATION.md
+    â””â”€â”€ MEMOIRE_MASTER_04_RESULTATS.md
 ```
 
 ---
 
-## 📚 Documentation Complète {#documentation}
+## ðŸ“š Documentation ComplÃ¨te {#documentation}
 
 | Document | Description | Lien |
 |----------|-------------|------|
-| 🎓 **Mémoire de Master** | Rapport complet 90 pages | [MEMOIRE_COMPLET.md](documentation/MEMOIRE_COMPLET.md) |
-| 📐 **Diagrammes UML** | 6 diagrammes PlantUML | [uml_diagrams/](documentation/uml_diagrams/) |
-| 📱 **Guide Unity AR** | Application mobile RA | [GUIDE_AR](unity_integration/GUIDE_AR_REALITE_AUGMENTEE.md) |
-| 🚀 **Déploiement Mobile** | Build Android/iOS | [DEPLOIEMENT_MOBILE.md](unity_integration/DEPLOIEMENT_MOBILE.md) |
-| 📖 **README Académique** | Documentation PFE | [README_PFE.md](README_PFE.md) |
+| ðŸŽ“ **MÃ©moire de Master** | Rapport complet 90 pages | [MEMOIRE_COMPLET.md](documentation/MEMOIRE_COMPLET.md) |
+| ðŸ“ **Diagrammes UML** | 6 diagrammes PlantUML | [uml_diagrams/](documentation/uml_diagrams/) |
+| ðŸ“± **Guide Unity AR** | Application mobile RA | [GUIDE_AR](unity_integration/GUIDE_AR_REALITE_AUGMENTEE.md) |
+| ðŸš€ **DÃ©ploiement Mobile** | Build Android/iOS | [DEPLOIEMENT_MOBILE.md](unity_integration/DEPLOIEMENT_MOBILE.md) |
+| ðŸ“– **README AcadÃ©mique** | Documentation PFE | [README_PFE.md](README_PFE.md) |
 
 ---
 
-## 📐 Diagrammes UML Complets
+## ðŸ“ Diagrammes UML Complets
 
-### 1️⃣ Diagramme de Cas d'Utilisation
+### 1ï¸âƒ£ Diagramme de Cas d'Utilisation
 
-Montre les acteurs du système et leurs interactions principales.
+Montre les acteurs du systÃ¨me et leurs interactions principales.
 
-**Acteurs :** Opérateur Maintenance, Machine Industrielle, Système IA, Administrateur
+**Acteurs :** OpÃ©rateur Maintenance, Machine Industrielle, SystÃ¨me IA, Administrateur
 
 ![Diagramme de Cas d'Utilisation](./images/uml_use_case.jpg)
 
@@ -232,420 +232,88 @@ Montre les acteurs du système et leurs interactions principales.
 
 ---
 
-### 2️⃣ Diagramme de Séquence - Détection d'Anomalie
+### 2ï¸âƒ£ Diagramme de SÃ©quence - DÃ©tection d'Anomalie
 
-Flux détaillé d'une détection d'anomalie en temps réel (latence totale : 152ms)
+Flux dÃ©taillÃ© d'une dÃ©tection d'anomalie en temps rÃ©el (latence totale : 152ms)
 
-<details>
-<summary>📋 Cliquez pour voir le diagramme</summary>
-
-```
-Capteurs   ESP32    MQTT     Edge IA   Backend   Dashboard   Opérateur
-   │         │        │         │         │          │           │
-   │ Mesure  │        │         │         │          │           │
-   │ 6.5mm/s │        │         │         │          │           │
-   ├────────>│        │         │         │          │           │
-   │         │        │         │         │          │           │
-   │         │ JSON   │         │         │          │           │
-   │         ├───────>│         │         │          │           │
-   │         │(15ms)  │         │         │          │           │
-   │         │        │ PUBLISH │         │          │           │
-   │         │        ├────────>│         │          │           │
-   │         │        │(45ms)   │         │          │           │
-   │         │        │         │ Inférence         │           │
-   │         │        │         │  SVM    │          │           │
-   │         │        │         │ (45ms)  │          │           │
-   │         │        │         │         │          │           │
-   │         │        │<────────┤ Résultat          │           │
-   │         │        │         │ Anomalie          │           │
-   │         │        │         │ Conf:95%          │           │
-   │         │        │         │         │          │           │
-   │         │        │ PUBLISH │         │          │           │
-   │         │        ├────────────────────>         │           │
-   │         │        │(12ms)   │         │          │           │
-   │         │        │         │         │ WebSocket│           │
-   │         │        │         │         ├─────────>│           │
-   │         │        │         │         │ (35ms)   │           │
-   │         │        │         │         │          │  Alerte   │
-   │         │        │         │         │          │  Visuelle │
-   │         │        │         │         │          │  🔴 ROUGE │
-   │         │        │         │         │          ├──────────>│
-   │         │        │         │         │          │           │
-   │         │        │         │         │          │           │
-   ⏱️ LATENCE TOTALE : 152ms (< 200ms ✅)
-```
-
-**Fichier source :** [02_sequence_diagram_anomaly.puml](documentation/uml_diagrams/02_sequence_diagram_anomaly.puml)
-
-</details>
-
----
-
-### 3️⃣ Diagramme de Classes
-
-Architecture orientée objet du système (4 couches)
-
-<details>
-<summary>📋 Cliquez pour voir le diagramme</summary>
-
-```
-┌──────────────────────┐        ┌──────────────────────┐
-│  ESP32Controller     │        │    SensorData        │
-├──────────────────────┤        ├──────────────────────┤
-│ - ssid: String       │   1    │ + machine_id: String │
-│ - mqtt_server: String│───────>│ + vibration: float   │
-│ - vibration: float   │  crée  │ + temperature: float │
-│ - temperature: float │   1..* │ + current: float     │
-│ - current: float     │        │ + timestamp: long    │
-├──────────────────────┤        ├──────────────────────┤
-│ + setup_wifi()       │        │ + toJSON(): String   │
-│ + reconnect()        │        └──────────────────────┘
-│ + publishSensorData()│                 │
-└──────────────────────┘                 │ MQTT
-                                         ▼
-                              ┌──────────────────────┐
-                              │ InferenceService     │
-                              ├──────────────────────┤
-                              │ - client: MQTTClient │
-                              │ - model: SVMModel    │
-                              ├──────────────────────┤
-                              │ + on_message()       │────┐
-                              │ + processData()      │    │ utilise
-                              │ + predict()          │    │
-                              └──────────────────────┘    │
-                                        │                 │
-                                        │ produit         ▼
-                                        │        ┌──────────────────┐
-                                        │        │    SVMModel      │
-                                        │        ├──────────────────┤
-                                        │        │ - model: SVM     │
-                                        ▼        ├──────────────────┤
-                              ┌──────────────────┤ + loadModel()    │
-                              │ AnalysisResult   │ + predict()      │
-                              ├──────────────────┤ + predict_proba()│
-                              │ + is_anomaly:bool│ └──────────────────┘
-                              │ + confidence:float│
-                              │ + recommendation │
-                              └──────────────────┘
-                                        │ MQTT
-                                        ▼
-                              ┌──────────────────────┐
-                              │  BackendServer       │
-                              ├──────────────────────┤
-                              │ - mqtt_client        │
-                              │ - io: SocketIO       │
-                              ├──────────────────────┤
-                              │ + handleAnalysis()   │
-                              │ + generateReco()     │
-                              │ + broadcastToClients()│
-                              └──────────────────────┘
-                                        │ WebSocket
-                                        ▼
-                              ┌──────────────────────┐
-                              │    Dashboard         │
-                              ├──────────────────────┤
-                              │ - socket: SocketIO   │
-                              │ - scene3D: THREE     │
-                              ├──────────────────────┤
-                              │ + updateKPIs()       │
-                              │ + update3DModel()    │
-                              │ + displayAlert()     │
-                              └──────────────────────┘
-```
-
-**Fichier source :** [03_class_diagram.puml](documentation/uml_diagrams/03_class_diagram.puml)
-
-</details>
-
----
-
-### 4️⃣ Diagramme de Déploiement
-
-Infrastructure physique complète (Hardware + Network)
-
-<details>
-<summary>📋 Cliquez pour voir le diagramme</summary>
-
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                   MACHINE INDUSTRIELLE                          │
-│  ┌──────────┐  ┌──────────┐  ┌──────────┐                      │
-│  │ Capteur  │  │ Capteur  │  │ Capteur  │                      │
-│  │Vibration │  │   Temp   │  │ Courant  │                      │
-│  └────┬─────┘  └────┬─────┘  └────┬─────┘                      │
-│       │             │             │                             │
-│       └─────────────┴─────────────┘                             │
-│                     │                                           │
-│            ┌────────▼────────┐                                  │
-│            │   ESP32 MCU     │                                  │
-│            │  (Firmware C++) │                                  │
-│            └────────┬────────┘                                  │
-└─────────────────────┼─────────────────────────────────────────┘
-                      │ WiFi
-                      ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                   RASPBERRY PI 4 (EDGE GATEWAY)                 │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐          │
-│  │  Mosquitto   │  │ Edge Service │  │  InfluxDB    │          │
-│  │ MQTT Broker  │←→│ Python + SVM │→→│ Time Series  │          │
-│  │   (QoS 1)    │  │  Inférence   │  │     DB       │          │
-│  └──────┬───────┘  └──────────────┘  └──────────────┘          │
-└─────────┼────────────────────────────────────────────────────────┘
-          │ LAN/Internet
-          ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                   SERVEUR WEB (PC / CLOUD)                      │
-│  ┌──────────────────┐         ┌──────────────────┐             │
-│  │  Backend Node.js │────────>│   Dashboard Web  │             │
-│  │  Express + io    │         │  HTML/CSS/JS     │             │
-│  └──────────────────┘         │   Three.js       │             │
-│                                └──────────────────┘             │
-└─────────────────────────────────────────────────────────────────┘
-          │ HTTP/WebSocket
-          ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                      POSTE CLIENT                               │
-│              ┌──────────────────┐                               │
-│              │   Navigateur Web │                               │
-│              │  Chrome/Firefox  │                               │
-│              └──────────────────┘                               │
-└─────────────────────────────────────────────────────────────────┘
-
-┌─────────────────────────────────────────────────────────────────┐
-│              UNITY 3D (ORDINATEUR / MOBILE)                     │
-│              ┌──────────────────┐                               │
-│              │ Application AR   │───> MQTT                      │
-│              │ Jumeau Numérique │                               │
-│              └──────────────────┘                               │
-└─────────────────────────────────────────────────────────────────┘
-```
+![Diagramme de DÃ©ploiement](./images/uml_deployment.jpg)
 
 **Fichier source :** [04_deployment_diagram.puml](documentation/uml_diagrams/04_deployment_diagram.puml)
 
-</details>
-
 ---
 
-### 5️⃣ Diagramme d'Activité - Entraînement IA
+### 5ï¸âƒ£ Diagramme d'ActivitÃ© - EntraÃ®nement IA
 
-Processus complet d'entraînement du modèle SVM
+Processus complet d'entraÃ®nement du modÃ¨le SVM
 
-<details>
-<summary>📋 Cliquez pour voir le diagramme</summary>
-
-```
-                    ┌──────────────────┐
-                    │      DÉBUT       │
-                    └────────┬─────────┘
-                             │
-                    ┌────────▼─────────┐
-                    │ Collecte Données │
-                    │   Historiques    │
-                    └────────┬─────────┘
-                             │
-                    ┌────────▼─────────┐
-                    │ Chargement CSV   │
-                    │ sensor_data.csv  │
-                    └────────┬─────────┘
-                             │
-                    ┌────────▼─────────┐
-                    │ Prétraitement    │
-                    ├──────────────────┤
-                    │ - Nettoyage      │
-                    │ - Normalisation  │
-                    └────────┬─────────┘
-                             │
-                    ┌────────▼─────────┐
-                    │  Split Données   │
-                    │  Train 80%       │
-                    │  Test  20%       │
-                    └────────┬─────────┘
-                             │
-               ┌─────────────▼─────────────┐
-               │  Initialisation SVM       │
-               │  Kernel: RBF              │
-               └─────────────┬─────────────┘
-                             │
-               ┌─────────────▼─────────────┐
-               │  Entraînement             │
-               │  sur Train Set            │
-               └─────────────┬─────────────┘
-                             │
-               ┌─────────────▼─────────────┐
-               │  Validation Croisée       │
-               └─────────────┬─────────────┘
-                             │
-               ┌─────────────▼─────────────┐
-               │  Évaluation Test Set      │
-               └─────────────┬─────────────┘
-                             │
-                    ┌────────▼─────────┐
-                    │  Précision       │
-                    │   > 90% ?        │
-                    └────────┬─────────┘
-                             │
-                 ┌───────────┴───────────┐
-                 │                       │
-              OUI│                       │NON
-                 │                       │
-        ┌────────▼─────────┐   ┌────────▼─────────┐
-        │  Sauvegarde      │   │ Analyse Erreurs  │
-        │ anomaly_detector │   │                  │
-        │     .pkl         │   │ Ajustement       │
-        └────────┬─────────┘   │ Hyperparamètres  │
-                 │              └────────┬─────────┘
-        ┌────────▼─────────┐            │
-        │   Déploiement    │            │
-        │  Raspberry Pi    │            │
-        └────────┬─────────┘            │
-                 │                      │
-        ┌────────▼─────────┐            │
-        │  Modèle Prêt     │◄───────────┘
-        │  Inférence       │
-        │  Temps Réel      │
-        └────────┬─────────┘
-                 │
-            ┌────▼────┐
-            │   FIN   │
-            └─────────┘
-
-✅ Résultat: Modèle SVM avec 98.5% de précision
-```
-
-**Fichier source :** [05_activity_diagram_training.puml](documentation/uml_diagrams/05_activity_diagram_training.puml)
-
-</details>
-
----
-
-### 6️⃣ Diagramme de Composants
-
-Architecture logicielle complète et interfaces
-
-<details>
-<summary>📋 Cliquez pour voir le diagramme</summary>
-
-```
-┌──────────────────────────────────────────────────────────────────┐
-│                     COUCHE IoT (EDGE DEVICES)                    │
-│  ┌──────────────┐         ┌──────────────┐                       │
-│  │   Capteurs   │────────>│ ESP32        │                       │
-│  │   I2C/SPI    │         │ Firmware   │                       │
-│  └──────────────┘         └──────┬───────┘                       │
-└─────────────────────────────────┼────────────────────────────────┘
-                                  │ MQTT Protocol
-                                  ▼
-┌──────────────────────────────────────────────────────────────────┐
-│                   COUCHE COMMUNICATION                           │
-│                  ┌──────────────────┐                            │
-│                  │  MQTT Broker     │                            │
-│                  │   Mosquitto      │                            │
-│                  └────────┬─────────┘                            │
-└──────────────────────────┼──────────────────────────────────────┘
-                            │
-          ┌─────────────────┼─────────────────┐
-          │ Subscribe       │                 │ Subscribe
-          ▼                 ▼                 ▼
-┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐
-│ EDGE COMPUTING  │ │   STOCKAGE      │ │   UNITY 3D      │
-│ ┌─────────────┐ │ │ ┌─────────────┐ │ │ ┌─────────────┐ │
-│ │Edge Service │ │ │ │  InfluxDB   │ │ │ │Digital Twin │ │
-│ │  Python     │ │ │ │Time Series  │ │ │ │    AR       │ │
-│ └──────┬──────┘ │ │ └─────────────┘ │ │ └─────────────┘ │
-│        │        │ │                 │ │                 │
-│ ┌──────▼──────┐ │ │                 │ │                 │
-│ │  SVM Model  │ │ │                 │ │                 │
-│ │ .pkl        │ │ │                 │ │                 │
-│ └─────────────┘ │ │                 │ │                 │
-└────────┬────────┘ └─────────────────┘ └─────────────────┘
-         │ Publish Analytics
-         ▼
-┌──────────────────────────────────────────────────────────────────┐
-│                    COUCHE APPLICATION                            │
-│  ┌──────────────────┐         ┌──────────────────┐              │
-│  │  Backend Node.js │────────>│  WebSocket Server│              │
-│  │  Express         │         │   Socket.io      │              │
-│  └──────────────────┘         └────────┬─────────┘              │
-└─────────────────────────────────────────┼────────────────────────┘
-                                          │ WebSocket Client
-                                          ▼
-┌──────────────────────────────────────────────────────────────────┐
-│                   COUCHE PRÉSENTATION                            │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐           │
-│  │ Dashboard    │  │  Three.js    │  │  Chart.js    │           │
-│  │   Web        │─>│  Moteur 3D   │  │  Graphiques  │           │
-│  │ HTML/CSS/JS  │  │              │  │              │           │
-│  └──────────────┘  └──────────────┘  └──────────────┘           │
-└──────────────────────────────────────────────────────────────────┘
-```
+![Diagramme de Composants](./images/uml_components.jpg)
 
 **Fichier source :** [06_component_diagram.puml](documentation/uml_diagrams/06_component_diagram.puml)
 
-</details>
-
 ---
 
-### 📥 Télécharger les Diagrammes
+### ðŸ“¥ TÃ©lÃ©charger les Diagrammes
 
 Tous les fichiers sources PlantUML sont disponibles dans [`documentation/uml_diagrams/`](documentation/uml_diagrams/)
 
 **Pour les visualiser :**
-- 🌐 En ligne : [plantuml.com](https://www.plantuml.com/plantuml/uml/)
-- 💻 VS Code : Extension "PlantUML"  
-- 📦 Ligne de commande : `plantuml *.puml`
+- ðŸŒ En ligne : [plantuml.com](https://www.plantuml.com/plantuml/uml/)
+- ðŸ’» VS Code : Extension "PlantUML"  
+- ðŸ“¦ Ligne de commande : `plantuml *.puml`
 
 
 
 ---
 
-## 🎯 Méthodologie Agile
+## ðŸŽ¯ MÃ©thodologie Agile
 
 **4 Sprints de 2 semaines** :
 
-| Sprint | Objectif | Durée | Livrables |
+| Sprint | Objectif | DurÃ©e | Livrables |
 |--------|----------|-------|-----------|
-| **Sprint 1** | Infrastructure IoT + MQTT | 20h | ESP32 firmware, Broker MQTT ✅ |
-| **Sprint 2** | Intelligence Artificielle | 22h | Modèle SVM 98.5% précision ✅ |
-| **Sprint 3** | Dashboard Web 3D | 32h | Interface temps réel + Three.js ✅ |
-| **Sprint 4** | Application AR Mobile | 24h | Unity AR + déploiement Android ✅ |
+| **Sprint 1** | Infrastructure IoT + MQTT | 20h | ESP32 firmware, Broker MQTT âœ… |
+| **Sprint 2** | Intelligence Artificielle | 22h | ModÃ¨le SVM 98.5% prÃ©cision âœ… |
+| **Sprint 3** | Dashboard Web 3D | 32h | Interface temps rÃ©el + Three.js âœ… |
+| **Sprint 4** | Application AR Mobile | 24h | Unity AR + dÃ©ploiement Android âœ… |
 
-**Total** : 98 heures développement | 100% fonctionnalités livrées | 0 bug critique
+**Total** : 98 heures dÃ©veloppement | 100% fonctionnalitÃ©s livrÃ©es | 0 bug critique
 
 ---
 
-## 🌟 Innovations
+## ðŸŒŸ Innovations
 
 | Innovation | Impact |
 |------------|--------|
-| **Edge AI < 100ms** | Réduction latence 66% vs Cloud |
-| **Jumeau 3D Réactif** | Visualisation immersive temps réel |
-| **Application AR** | Première solution AR pour maintenance industrielle |
+| **Edge AI < 100ms** | RÃ©duction latence 66% vs Cloud |
+| **Jumeau 3D RÃ©actif** | Visualisation immersive temps rÃ©el |
+| **Application AR** | PremiÃ¨re solution AR pour maintenance industrielle |
 | **IA Cognitive** | Recommandations textuelles automatiques |
 | **Architecture Hybrid** | Edge + Cloud optimal |
 
 ---
 
-## 🎓 Auteur
+## ðŸŽ“ Auteur
 
 **Dawser Belgacem**  
-📧 dawserbelgacem122@gmail.com  
-📅 Année Universitaire 2025-2026  
-🎯 Master Informatique - Spécialité IoT
+ðŸ“§ dawserbelgacem122@gmail.com  
+ðŸ“… AnnÃ©e Universitaire 2025-2026  
+ðŸŽ¯ Master Informatique - SpÃ©cialitÃ© IoT
 
 ---
 
-## 📜 Licence
+## ðŸ“œ Licence
 
-Projet académique développé dans le cadre d'un Mémoire de Fin d'Études (PFE)
+Projet acadÃ©mique dÃ©veloppÃ© dans le cadre d'un MÃ©moire de Fin d'Ã‰tudes (PFE)
 
 ---
 
 <div align="center">
 
-**⭐ Star ce projet si vous le trouvez utile !**
+**â­ Star ce projet si vous le trouvez utile !**
 
-Made with ❤️ for Industry 4.0
+Made with â¤ï¸ for Industry 4.0
 
 [![GitHub](https://img.shields.io/badge/GitHub-doosr-blue?logo=github)](https://github.com/doosr/Predictive_maintenance)
 
 </div>
+
