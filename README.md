@@ -59,20 +59,20 @@ graph TB
     end
     
     subgraph "Couche Application"
-        D[Backend Node.js<br/>Express + Socket.io]
+        D[Backend Node.js - Express + Socket.io]
     end
     
     subgraph "Couche Edge Computing"
-        E[Raspberry Pi<br/>SVM Model<br/>Inférence temps réel]
-        F[InfluxDB<br/>Séries Temporelles]
+        E[Raspberry Pi - SVM Model - Inférence temps réel]
+        F[InfluxDB - Séries Temporelles]
     end
     
     subgraph "Couche Communication"
-        G[Mosquitto MQTT Broker<br/>QoS 1]
+        G[Mosquitto MQTT Broker - QoS 1]
     end
     
     subgraph "Couche IoT"
-        H[ESP32 + Capteurs<br/>Vibration | Température | Courant]
+        H[ESP32 + Capteurs - Vibration + Température + Courant]
     end
     
     A --> D
@@ -98,20 +98,20 @@ sequenceDiagram
     participant C as Capteurs
     participant E as ESP32
     participant M as MQTT Broker
-    participant AI as Edge IA (SVM)
+    participant AI as Edge IA SVM
     participant B as Backend
     participant D as Dashboard
 
-    C->>E: Mesure (vib=6.5 mm/s)
+    C->>E: Mesure vib=6.5
     E->>M: PUBLISH sensors
     M->>AI: Message reçu
-    AI->>AI: Inférence SVM (45ms)
-    AI-->>M: PUBLISH analysis<br/>(anomalie=true, conf=95%)
+    AI->>AI: Inférence SVM 45ms
+    AI-->>M: PUBLISH analysis anomalie=true conf=95%
     M->>B: Transmission
     B->>B: Génération recommandation
     B->>D: WebSocket EMIT
-    D->>D: 🔴 Alerte visuelle<br/>Moteur 3D rouge
-    Note over D: Latence totale: 152ms
+    D->>D: Alerte visuelle Moteur 3D rouge
+    Note over D: Latence totale 152ms
 ```
 
 **Architecture en 4 couches** :
