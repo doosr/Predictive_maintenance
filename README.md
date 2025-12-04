@@ -1,4 +1,4 @@
-# 🏭 Plateforme IoT de Maintenance Prédictive avec Intelligence Artificielle
+    # 🏭 Plateforme IoT de Maintenance Prédictive avec Intelligence Artificielle
 
 <div align="center">
 
@@ -7,7 +7,6 @@
 ![AI](https://img.shields.io/badge/AI-SVM%20%2B%20Edge-orange)
 ![Platform](https://img.shields.io/badge/Platform-Industrie%204.0-informational)
 
-**Projet de Fin d'Études (PFE) - Master**
 
 *Surveillance intelligente de machines industrielles en temps réel avec détection d'anomalies par IA distribuée*
 
@@ -247,20 +246,15 @@ predictive_maintenance/
 
 ## 📚 Documentation Complète
 
-- 📖 **[README_PFE.md](README_PFE.md)** : Documentation académique complète
-- 📝 **[STRUCTURE_MEMOIRE.md](STRUCTURE_MEMOIRE.md)** : Plan détaillé du mémoire
-- 🎤 **[PLAN_SOUTENANCE.md](PLAN_SOUTENANCE.md)** : Structure de la présentation
 - 🎓 **[documentation/uml_diagrams/](documentation/uml_diagrams/)** : Tous les diagrammes UML
 
 ---
 
 ## 🎓 Auteur
 
-**Projet de Fin d'Études - Master**
 
-📧 Contact : [votre.email@universite.edu]  
-🏫 Université : [Nom de votre université]  
-📅 Année : 2024-2025
+📧 Contact : [dawserbelgacem122@gmail.com]  
+📅 Année : 2025-2026
 
 ---
 
@@ -272,6 +266,5 @@ Ce projet a été développé dans un cadre académique.
 
 <div align="center">
 
-**⭐ Si ce projet vous a aidé, n'hésitez pas à le mettre en favori !**
 
 </div>
