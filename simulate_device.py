@@ -5,7 +5,7 @@ import math
 import paho.mqtt.client as mqtt
 
 # ==========================================
-# ⚙️ CONFIGURATION SIMULATEUR
+#  CONFIGURATION SIMULATEUR
 # ==========================================
 
 MQTT_BROKER = "broker.hivemq.com"
