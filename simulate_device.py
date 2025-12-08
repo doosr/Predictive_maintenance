@@ -17,16 +17,16 @@ TOPIC_SENSORS = "pfe/machine01/sensors"
 def simulate():
     client = mqtt.Client()
     
-    print(f"⏳ Connexion au simulateur vers {MQTT_BROKER}...")
+    print(f" Connexion au simulateur vers {MQTT_BROKER}...")
     try:
         client.connect(MQTT_BROKER, MQTT_PORT, 60)
-        print("✅ Connecté !")
+        print(" Connecté !")
     except Exception as e:
-        print(f"❌ Erreur de connexion : {e}")
+        print(f" Erreur de connexion : {e}")
         return
 
-    print("\n🚀 Démarrage de la simulation de machine industrielle...")
-    print("ℹ️  Appuyez sur Ctrl+C pour arrêter.\n")
+    print("\n Démarrage de la simulation de machine industrielle...")
+    print("  Appuyez sur Ctrl+C pour arrêter.\n")
     
     while True:
         try:
@@ -62,16 +62,16 @@ def simulate():
             client.publish(TOPIC_SENSORS, json.dumps(payload))
             
             # Affichage console
-            status = "🔴 ANOMALIE GENEREE" if is_anomaly else "🟢 Normal"
-            print(f"📤 Envoi : Vib={vibration:.2f} | {status}")
+            status = "ANOMALIE GENEREE" if is_anomaly else "Normal"
+            print(f" Envoi : Vib={vibration:.2f} | {status}")
             
             time.sleep(2) # Pause de 2 secondes
 
         except KeyboardInterrupt:
-            print("\n🛑 Arrêt de la simulation.")
+            print("\n Arrêt de la simulation.")
             break
         except Exception as e:
-            print(f"❌ Erreur : {e}")
+            print(f" Erreur : {e}")
             time.sleep(1)
 
 if __name__ == "__main__":
