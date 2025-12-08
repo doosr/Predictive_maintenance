@@ -70,18 +70,18 @@ public class ARPredictiveMaintenanceController : MonoBehaviour
             string clientId = Guid.NewGuid().ToString();
             mqttClient.Connect(clientId);
             mqttClient.Subscribe(new string[] { topic }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
-            Debug.Log("✅ Connected to MQTT Broker!");
+            Debug.Log("Connected to MQTT Broker!");
         }
         catch (Exception e)
         {
-            Debug.LogError("❌ MQTT Connection failed: " + e.Message);
+            Debug.LogError("MQTT Connection failed: " + e.Message);
         }
     }
 
     private void OnMqttMessageReceived(object sender, MqttMsgPublishEventArgs e)
     {
         string json = Encoding.UTF8.GetString(e.Message);
-        Debug.Log("📩 Received: " + json);
+        Debug.Log("Received: " + json);
 
         try
         {
@@ -200,7 +200,7 @@ public class ARPredictiveMaintenanceController : MonoBehaviour
 
         if (statusText != null)
         {
-            statusText.text = currentData.is_anomaly ? "⚠️ ANOMALIE" : "✅ NORMAL";
+            statusText.text = currentData.is_anomaly ? "ANOMALIE" : "NORMAL";
             statusText.color = currentData.is_anomaly ? Color.red : Color.green;
         }
 
