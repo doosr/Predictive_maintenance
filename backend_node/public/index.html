@@ -338,7 +338,7 @@
             // Idle rotation
             motor.rotation.x += 0.01;
 
-            // ⚠️ VIBRATION EFFECT (Digital Twin)
+            // VIBRATION EFFECT (Digital Twin)
             if (currentVib > 2) {
                 const shake = (currentVib / 20) * 0.1; // Scale shake
                 motor.position.x = (Math.random() - 0.5) * shake;
@@ -429,12 +429,12 @@
 
             // Update Status & AI Message
             if (data.is_anomaly) {
-                elStatus.textContent = "⚠️ ANOMALIE CRITIQUE";
+                elStatus.textContent = "ANOMALIE CRITIQUE";
                 elStatus.className = "status-badge status-danger";
                 elVib.style.color = "#ff4d4d";
 
                 elAiMsg.style.color = "#ffcccc";
-                elAiMsg.innerHTML = `🚨 <strong>DIAGNOSTIC :</strong> ${data.recommendation}`;
+                elAiMsg.innerHTML = `<strong>DIAGNOSTIC :</strong> ${data.recommendation}`;
 
                 addAlert(data);
             } else {
@@ -443,7 +443,7 @@
                 elVib.style.color = "#66fcf1";
 
                 elAiMsg.style.color = "#fff";
-                elAiMsg.innerHTML = "✅ <strong>DIAGNOSTIC :</strong> Tous les paramètres sont nominaux. Aucune maintenance requise.";
+                elAiMsg.innerHTML = "<strong>DIAGNOSTIC :</strong> Tous les paramètres sont nominaux. Aucune maintenance requise.";
             }
 
             // Update Chart
