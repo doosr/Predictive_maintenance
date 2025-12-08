@@ -6,7 +6,7 @@ const cors = require('cors');
 const path = require('path');
 
 // ==========================================
-// ⚙️ CONFIGURATION
+//  CONFIGURATION
 // ==========================================
 
 const MQTT_BROKER = 'mqtt://broker.hivemq.com:1883';
@@ -32,7 +32,7 @@ console.log('⏳ Démarrage du Backend IoT Pro...');
 const client = mqtt.connect(MQTT_BROKER);
 
 client.on('connect', () => {
-    console.log(`✅ Connecté au Broker MQTT : ${MQTT_BROKER}`);
+    console.log(`Connecté au Broker MQTT : ${MQTT_BROKER}`);
     client.subscribe(TOPIC_ANALYSIS);
 });
 
@@ -44,7 +44,7 @@ client.on('message', (topic, message) => {
             // Ajouter timestamp lisible
             data.receivedAt = new Date().toLocaleTimeString();
 
-            // 🧠 IA Générative : Recommandation textuelle
+            // IA Générative : Recommandation textuelle
             let recommendation = "Aucune action requise.";
             if (data.is_anomaly) {
                 if (data.vibration > 5) recommendation = "⚠️ URGENCE : Vérifier l'alignement de l'arbre et les roulements.";
@@ -55,38 +55,38 @@ client.on('message', (topic, message) => {
 
             // Log console
             if (data.is_anomaly) {
-                console.log(`🔴 ANOMALIE DETECTEE sur ${data.machine_id} (Confiance: ${(data.confidence * 100).toFixed(1)}%)`);
-                console.log(`💡 Conseil IA : ${recommendation}`);
+                console.log(`ANOMALIE DETECTEE sur ${data.machine_id} (Confiance: ${(data.confidence * 100).toFixed(1)}%)`);
+                console.log(`Conseil IA : ${recommendation}`);
 
                 // Ajouter à l'historique
                 alertHistory.unshift(data);
                 if (alertHistory.length > MAX_HISTORY) alertHistory.pop();
             }
 
-            // 🚀 Envoyer au Frontend via WebSocket
+            // Envoyer au Frontend via WebSocket
             io.emit('machine_update', data);
 
         } catch (e) {
-            console.error('❌ Erreur parsing JSON:', e);
+            console.error('Erreur parsing JSON:', e);
         }
     }
 });
 
 // --- SOCKET.IO SETUP ---
 io.on('connection', (socket) => {
-    console.log('👤 Nouveau client Dashboard connecté');
+    console.log('Nouveau client Dashboard connecté');
 
     // Envoyer l'historique des alertes à la connexion
     socket.emit('alert_history', alertHistory);
 
     socket.on('disconnect', () => {
-        console.log('👤 Client déconnecté');
+        console.log('Client déconnecté');
     });
 });
 
 // --- SERVER START ---
 server.listen(PORT, () => {
-    console.log(`\n🚀 SERVEUR WEB LANCE !`);
-    console.log(`👉 Accédez au Dashboard ici : http://localhost:${PORT}`);
+    console.log(`\n SERVEUR WEB LANCE !`);
+    console.log(` Accédez au Dashboard ici : http://localhost:${PORT}`);
     console.log(`---------------------------------------------------\n`);
 });
